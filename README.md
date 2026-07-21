@@ -63,7 +63,7 @@ Netlify UI settings).
 |---|---|
 | Netlify site name | `ss-property-services` |
 | Netlify site ID | _TBD_ |
-| Live URL | https://ss-property-services.netlify.app |
+| Live URL | https://ss-property-services.netlify.app (verified live 2026-07-21) |
 
 ### Day-to-day workflow (every change — this IS the deploy)
 
