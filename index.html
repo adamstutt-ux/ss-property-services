@@ -91,9 +91,11 @@ nav a:hover{color:var(--primary)}
 
 /* ---------- Videos ---------- */
 .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-.video-card{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#000;position:relative}
+.video-card{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#000;position:relative;cursor:pointer}
 .video-card video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
 .video-card figcaption{background:var(--dark);color:#fff;padding:10px 16px;font-weight:600;font-size:.92rem}
+.video-hint{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.6);color:#fff;font-size:.74rem;font-weight:600;padding:5px 10px;border-radius:999px;pointer-events:none;transition:opacity .2s;backdrop-filter:blur(2px)}
+.video-card.playing .video-hint{opacity:0}
 
 /* ---------- Testimonials ---------- */
 .quote-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
@@ -373,23 +375,22 @@ body.layout-boxed>section{width:100%}
     <div class="section-head">
       <span class="eyebrow">See us in action</span>
       <h2>Watch the work</h2>
-      <p>Short clips of the kind of care your property gets.</p>
+      <p>Hover over a clip to watch it play.</p>
     </div>
     <div class="video-grid">
       <figure class="video-card">
-        <video controls muted playsinline preload="metadata" poster="assets/video/lawn-care-poster.jpg" src="assets/video/lawn-care.mp4"></video>
+        <video muted loop playsinline preload="none" poster="assets/video/lawn-care-poster.jpg" src="assets/video/lawn-care.mp4"></video>
+        <span class="video-hint">▶ Hover to play</span>
         <figcaption>Lawn care — trimming &amp; edging</figcaption>
       </figure>
       <figure class="video-card">
-        <video controls muted playsinline preload="metadata" poster="assets/video/landscaping-poster.jpg" src="assets/video/landscaping.mp4"></video>
+        <video muted loop playsinline preload="none" poster="assets/video/landscaping-poster.jpg" src="assets/video/landscaping.mp4"></video>
+        <span class="video-hint">▶ Hover to play</span>
         <figcaption>Landscaping — planting garden beds</figcaption>
       </figure>
       <figure class="video-card">
-        <video controls muted playsinline preload="metadata" poster="assets/video/window-washing-poster.jpg" src="assets/video/window-washing.mp4"></video>
-        <figcaption>Window washing — streak-free shine</figcaption>
-      </figure>
-      <figure class="video-card">
-        <video controls muted playsinline preload="metadata" poster="assets/video/back-rub-poster.jpg" src="assets/video/back-rub.mp4"></video>
+        <video muted loop playsinline preload="none" poster="assets/video/back-rub-poster.jpg" src="assets/video/back-rub.mp4"></video>
+        <span class="video-hint">▶ Hover to play</span>
         <figcaption>Back rubs — the post-yard-work treat</figcaption>
       </figure>
     </div>
@@ -647,6 +648,38 @@ function labBuild(){
   labApply();
 }
 labBuild();
+
+/* =====================================================================
+   HOVER-TO-PLAY VIDEOS
+   Muted, looping clips that play on hover (desktop) or tap (touch).
+   The clip only downloads once the visitor interacts (preload="none").
+   ===================================================================== */
+(function(){
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const canHover = window.matchMedia("(hover: hover)").matches;
+  document.querySelectorAll(".video-card").forEach(card => {
+    const v = card.querySelector("video");
+    if(!v) return;
+    const start = () => {
+      card.classList.add("playing");
+      const p = v.play();
+      if(p) p.catch(() => {});
+    };
+    const stop = () => {
+      card.classList.remove("playing");
+      v.pause();
+      v.currentTime = 0;
+    };
+    if(canHover && !reduce){
+      card.addEventListener("mouseenter", start);
+      card.addEventListener("mouseleave", stop);
+    }
+    // Tap toggles on touch devices (and works as a fallback everywhere)
+    card.addEventListener("click", () => {
+      if(v.paused) start(); else stop();
+    });
+  });
+})();
 
 /* Graceful fallback if a stock photo fails to load: swap in a branded
    SVG placeholder so the gallery never shows a broken image. */
