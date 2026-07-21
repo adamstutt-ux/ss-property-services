@@ -134,6 +134,83 @@ footer a{color:#cfdad2;text-decoration:none}
 footer a:hover{color:var(--accent)}
 .copyright{text-align:center;font-size:.85rem;opacity:.65;border-top:1px solid rgba(255,255,255,.12);padding-top:22px}
 
+/* ---------- Design Lab ---------- */
+.lab-toggle{position:fixed;top:82px;right:18px;z-index:60;width:44px;height:44px;border-radius:12px;background:#fff;border:2px solid var(--primary);color:var(--primary);font-size:1.25rem;cursor:pointer;box-shadow:var(--shadow);display:grid;place-items:center}
+.lab-panel{position:fixed;top:82px;right:18px;z-index:70;width:352px;max-height:calc(100vh - 120px);overflow-y:auto;background:#fff;border-radius:14px;box-shadow:0 14px 44px rgba(0,0,0,.28);padding:20px;display:none}
+.lab-panel.open{display:block}
+.lab-title{font-size:.8rem;font-weight:800;letter-spacing:.14em;color:var(--primary);border-bottom:2px solid var(--primary);padding-bottom:8px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+.lab-title button{background:none;border:none;font-size:1rem;cursor:pointer;color:#888}
+.lab-h{font-size:.72rem;font-weight:800;letter-spacing:.12em;color:#444;margin:16px 0 8px;display:flex;justify-content:space-between}
+.lab-h span:last-child{color:var(--primary);font-weight:700;letter-spacing:0}
+.scheme-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.scheme-card{border:2px solid #e5e5e5;border-radius:8px;padding:5px;cursor:pointer;background:#fff;text-align:center}
+.scheme-card.active{border-color:var(--primary)}
+.scheme-strip{display:flex;height:20px;border-radius:4px;overflow:hidden}
+.scheme-strip span{flex:1}
+.scheme-card small{display:block;font-size:.62rem;color:#333;margin-top:4px;line-height:1.2;font-weight:600}
+.layout-list{display:flex;flex-direction:column;gap:6px}
+.layout-btn{border:2px solid #e5e5e5;border-radius:8px;padding:8px 12px;cursor:pointer;background:#fff;text-align:left;font:inherit}
+.layout-btn.active{border-color:var(--primary)}
+.layout-btn b{display:block;font-size:.82rem;color:#222}
+.layout-btn small{font-size:.7rem;color:#777;line-height:1.3}
+.lab-reset{margin-top:14px;width:100%;border:none;background:#f0f0f0;border-radius:8px;padding:9px;font-weight:700;cursor:pointer;color:#444}
+
+/* ---------- Layout variants ---------- */
+.hero-photo{display:none}
+/* Split Photo Hero */
+body.layout-split .hero-card{display:none}
+body.layout-split .hero-photo{display:block}
+body.layout-split .hero-photo img{border-radius:var(--radius);width:100%;height:340px;object-fit:cover}
+/* Full-Bleed Photo Hero */
+body.layout-fullbleed .hero{background:linear-gradient(rgba(15,25,18,.68),rgba(15,25,18,.68)),url("assets/img/mowing.jpg") center/cover}
+body.layout-fullbleed .hero-card,body.layout-fullbleed .hero-photo{display:none}
+body.layout-fullbleed .hero .wrap{grid-template-columns:1fr;text-align:center}
+body.layout-fullbleed .hero p{margin-left:auto;margin-right:auto}
+body.layout-fullbleed .hero-cta{justify-content:center}
+/* Services-First Landing (slim banner hero) */
+body.layout-servicesfirst .hero{padding:38px 0}
+body.layout-servicesfirst .hero h1{font-size:2rem;margin-bottom:8px}
+body.layout-servicesfirst .hero p{margin-bottom:16px}
+body.layout-servicesfirst .hero-card,body.layout-servicesfirst .hero-photo{display:none}
+body.layout-servicesfirst .hero .wrap{grid-template-columns:1fr}
+/* Reordered variants share body flex */
+body.layout-galleryfirst,body.layout-spotlight{display:flex;flex-direction:column}
+body.layout-galleryfirst header,body.layout-spotlight header{order:0}
+body.layout-galleryfirst .hero,body.layout-spotlight .hero{order:1}
+body.layout-galleryfirst .gallery{order:2}
+body.layout-galleryfirst .services{order:3}
+body.layout-galleryfirst .why{order:4}
+body.layout-galleryfirst .videos{order:5}
+body.layout-galleryfirst #testimonials{order:6}
+body.layout-galleryfirst .forms{order:7}
+body.layout-galleryfirst footer{order:8}
+body.layout-spotlight .services{order:2}
+body.layout-spotlight #testimonials{order:3;background:var(--dark)}
+body.layout-spotlight #testimonials .section-head h2{color:#fff}
+body.layout-spotlight .why{order:4}
+body.layout-spotlight .gallery{order:5}
+body.layout-spotlight .videos{order:6}
+body.layout-spotlight .forms{order:7}
+body.layout-spotlight footer{order:8}
+/* Zig-Zag Services */
+body.layout-zigzag .services .card-grid{display:flex;flex-direction:column;gap:14px}
+body.layout-zigzag .services .card{display:flex;gap:22px;align-items:flex-start}
+body.layout-zigzag .services .card .icon{flex-shrink:0;margin-bottom:0}
+body.layout-zigzag .services .card:nth-child(even){flex-direction:row-reverse}
+/* One-Page Minimal */
+body.layout-minimal .wrap{max-width:780px}
+body.layout-minimal .card,body.layout-minimal .quote,body.layout-minimal .form-card,body.layout-minimal .photo,body.layout-minimal .video-card{box-shadow:none}
+body.layout-minimal .card,body.layout-minimal .quote{border:1px solid #e4e8e4}
+body.layout-minimal section{padding:88px 0}
+body.layout-minimal .hero-card{display:none}
+body.layout-minimal .hero .wrap{grid-template-columns:1fr}
+/* Boxed & Framed */
+body.layout-boxed{background:color-mix(in srgb,var(--primary) 10%,white);padding:22px}
+body.layout-boxed>header{border-radius:14px 14px 0 0;top:0}
+body.layout-boxed>footer{border-radius:0 0 14px 14px}
+body.layout-boxed>header,body.layout-boxed>section,body.layout-boxed>footer{max-width:1220px;margin-left:auto;margin-right:auto}
+body.layout-boxed>section{width:100%}
+
 /* ---------- Responsive ---------- */
 @media (max-width:860px){
   .hero .wrap,.form-grid,.foot{grid-template-columns:1fr}
@@ -142,6 +219,8 @@ footer a:hover{color:var(--accent)}
   nav ul.open{display:flex}
   .menu-toggle{display:block}
   .row,.checks{grid-template-columns:1fr}
+  .lab-panel{left:8px;right:8px;width:auto;top:76px}
+  body.layout-zigzag .services .card,body.layout-zigzag .services .card:nth-child(even){flex-direction:column}
 }
 </style>
 </head>
@@ -174,6 +253,7 @@ footer a:hover{color:var(--accent)}
         <a class="btn ghost" href="#services">See Our Services</a>
       </div>
     </div>
+    <div class="hero-photo" aria-hidden="true"><img src="assets/img/curb-appeal.jpg" alt="" loading="lazy"></div>
     <div class="hero-card">
       <h3>Why homeowners call S&amp;S</h3>
       <ul>
@@ -465,6 +545,108 @@ document.getElementById("quoteForm").addEventListener("submit", e => {
     alert("Please pick at least one service.");
   }
 });
+
+/* =====================================================================
+   DESIGN LAB — on-page scheme & layout previewer (gear button, top right).
+   Selections persist in this browser via localStorage; visitors who never
+   touch the gear see the default design. Remove this block (and the
+   .lab-* / layout-variant CSS) to retire the lab once a design is chosen.
+   ===================================================================== */
+const LAB_SCHEMES = [
+  ["Fresh Fairway","#2e7d32","#1b3022","#f9a825","#f4f7f2","#26302b"],
+  ["Spring Meadow","#4caf50","#1e4620","#ffca28","#f6fbf4","#2b332c"],
+  ["Deep Forest","#1e5631","#0f2b18","#c9a227","#f2f5f0","#22312a"],
+  ["Sage & Stone","#7c9070","#3a4a38","#d97706","#f7f8f4","#333d33"],
+  ["Mint Condition","#2bb673","#173a2b","#ff8f00","#f0faf5","#243530"],
+  ["Olive Grove","#6b8e23","#33421a","#e07a3f","#faf9f2","#38402c"],
+  ["Emerald Estate","#0f9d58","#0b3d2c","#fbbc05","#f1f8f4","#1f3229"],
+  ["Moss & Timber","#5f7a4a","#2e3b25","#a9713d","#f6f6ef","#343c2e"],
+  ["Lakeside Blue","#1976d2","#12304a","#ffb300","#f2f7fb","#25313a"],
+  ["Harbour Navy","#1a3a5c","#0e2338","#f2a900","#f4f7fa","#243240"],
+  ["Sky & Turf","#3aa0d8","#174a63","#66bb44","#f2f9fd","#26363e"],
+  ["Steel & Citrus","#4a6fa5","#243b55","#f26b21","#f4f6fa","#2b3440"],
+  ["Fresh Rain","#00897b","#0e3c37","#ffa000","#effaf8","#223a37"],
+  ["Coastal Slate","#546e7a","#263238","#e6a817","#f5f7f8","#2c363b"],
+  ["True North","#1565c0","#0d2c54","#d32f2f","#f3f7fc","#263341"],
+  ["Aqua Clean","#00acc1","#0b3a42","#ff7043","#effafb","#24393d"],
+  ["Charcoal Punch","#37c871","#1c1f1d","#37c871","#f4f5f4","#232725"],
+  ["Blackout Gold","#c9a227","#161616","#c9a227","#f6f5f2","#262626"],
+  ["Safety Orange","#f2600c","#2b2b2b","#ffc400","#faf6f2","#302c28"],
+  ["Volt & Slate","#9ccc02","#2f3b32","#00bfa5","#f7faf2","#2d352f"],
+  ["Crimson Trim","#c62828","#301b1b","#f9a825","#faf4f3","#332828"],
+  ["Ultraviolet","#5e35b1","#241a45","#aeea00","#f6f4fa","#2d2740"],
+  ["Graphite Mono","#424242","#212121","#00c853","#f5f5f5","#2b2b2b"],
+  ["Teal Pop","#009688","#12403a","#ff5252","#f0f9f8","#243a36"],
+  ["Golden Hour","#e65100","#3e2723","#ffd54f","#fbf6ef","#3a2f28"],
+  ["Terracotta Patio","#c25e40","#4a2c21","#7a9a5a","#faf4f0","#3b2f29"],
+  ["Honey & Hedge","#f2b705","#33502b","#3f7d2c","#fdfaf0","#333a2c"],
+  ["Sunset Drive","#ef6c4d","#42302d","#2a9d8f","#fdf5f2","#3a312e"],
+  ["Ivy & Ivory","#3b6d4a","#22402c","#d4a017","#faf8f0","#2c352e"],
+  ["Espresso Suite","#8d6e63","#2a1e1a","#d7b377","#f8f4f1","#342a25"],
+  ["Winter Slate","#5b7c99","#2b3a48","#e8a13d","#f4f7f9","#2e3841"],
+  ["Pine & Brass","#2f5d46","#1a3328","#b08d3e","#f3f6f3","#28352e"]
+];
+const LAB_LAYOUTS = [
+  ["", "Classic Stack", "The default — hero with checklist card, then services."],
+  ["layout-split", "Split Photo Hero", "Photo beside the headline instead of the checklist."],
+  ["layout-fullbleed", "Full-Bleed Photo Hero", "Big photo behind the headline, centred text."],
+  ["layout-servicesfirst", "Services-First", "Slim banner, straight into the service cards."],
+  ["layout-galleryfirst", "Photos First", "The work gallery right under the hero."],
+  ["layout-zigzag", "Zig-Zag Services", "Each service as its own alternating row."],
+  ["layout-spotlight", "Testimonial Spotlight", "Reviews on a dark band right after services."],
+  ["layout-minimal", "One-Page Minimal", "Narrow column, flatter cards, extra whitespace."],
+  ["layout-boxed", "Boxed & Framed", "Whole site floats in a frame on a tinted page."]
+];
+const VARS = ["--primary","--dark","--accent","--light","--ink"];
+const labState = JSON.parse(localStorage.getItem("ss-design-lab") || "{}");
+
+function labApply(){
+  const s = LAB_SCHEMES[labState.scheme ?? 0];
+  VARS.forEach((v, i) => document.documentElement.style.setProperty(v, s[i + 1]));
+  document.body.classList.remove(...LAB_LAYOUTS.map(l => l[0]).filter(Boolean));
+  if (labState.layout) document.body.classList.add(labState.layout);
+  localStorage.setItem("ss-design-lab", JSON.stringify(labState));
+  document.querySelectorAll(".scheme-card").forEach((el, i) =>
+    el.classList.toggle("active", i === (labState.scheme ?? 0)));
+  document.querySelectorAll(".layout-btn").forEach((el, i) =>
+    el.classList.toggle("active", LAB_LAYOUTS[i][0] === (labState.layout || "")));
+  document.getElementById("lab-scheme-name").textContent = s[0];
+  document.getElementById("lab-layout-name").textContent =
+    LAB_LAYOUTS.find(l => l[0] === (labState.layout || ""))[1];
+}
+
+function labBuild(){
+  const panel = document.createElement("div");
+  panel.innerHTML = `
+  <button class="lab-toggle" aria-label="Open design lab" title="Design Lab">⚙</button>
+  <div class="lab-panel" role="dialog" aria-label="Design lab">
+    <div class="lab-title">DESIGN LAB <button aria-label="Close">✕</button></div>
+    <div class="lab-h"><span>COLOUR SCHEME</span><span id="lab-scheme-name"></span></div>
+    <div class="scheme-grid">${LAB_SCHEMES.map(s => `
+      <button class="scheme-card"><span class="scheme-strip">${s.slice(1).map(c =>
+        `<span style="background:${c}"></span>`).join("")}</span><small>${s[0]}</small></button>`).join("")}
+    </div>
+    <div class="lab-h"><span>LAYOUT</span><span id="lab-layout-name"></span></div>
+    <div class="layout-list">${LAB_LAYOUTS.map(l => `
+      <button class="layout-btn"><b>${l[1]}</b><small>${l[2]}</small></button>`).join("")}
+    </div>
+    <button class="lab-reset">Reset to default</button>
+  </div>`;
+  document.body.appendChild(panel);
+  const box = panel.querySelector(".lab-panel");
+  panel.querySelector(".lab-toggle").addEventListener("click", () => box.classList.toggle("open"));
+  panel.querySelector(".lab-title button").addEventListener("click", () => box.classList.remove("open"));
+  panel.querySelectorAll(".scheme-card").forEach((el, i) =>
+    el.addEventListener("click", () => { labState.scheme = i; labApply(); }));
+  panel.querySelectorAll(".layout-btn").forEach((el, i) =>
+    el.addEventListener("click", () => { labState.layout = LAB_LAYOUTS[i][0]; labApply(); }));
+  panel.querySelector(".lab-reset").addEventListener("click", () => {
+    delete labState.scheme; delete labState.layout;
+    localStorage.removeItem("ss-design-lab"); labApply();
+  });
+  labApply();
+}
+labBuild();
 
 /* Graceful fallback if a stock photo fails to load: swap in a branded
    SVG placeholder so the gallery never shows a broken image. */
