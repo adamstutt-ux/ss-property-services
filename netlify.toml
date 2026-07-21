@@ -1,0 +1,3 @@
+[build]
+  publish = "."
+  # no build command — plain static HTML

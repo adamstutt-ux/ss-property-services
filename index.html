@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S&amp;S Property Services — Lawn Care, Pressure Washing, Landscaping &amp; Window Washing in Kingston</title>
+<meta name="description" content="S&S Property Services offers friendly, reliable lawn care, pressure washing, landscaping and window washing in and around Kingston, Ontario. Free quotes.">
+<style>
+/* =========================================================
+   THEME — swap these values to try any scheme from the
+   Design Options PDF (each scheme lists its five hex codes
+   in this same order).
+   ========================================================= */
+:root{
+  --primary:   #2e7d32;  /* main brand colour (buttons, links, accents) */
+  --dark:      #1b3022;  /* headings, footer, dark sections */
+  --accent:    #f9a825;  /* highlight colour (CTAs, hover states) */
+  --light:     #f4f7f2;  /* page / alternating section background */
+  --ink:       #26302b;  /* body text */
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(20,40,25,.10);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:var(--primary)}
+h1,h2,h3{color:var(--dark);line-height:1.2}
+section{padding:72px 0}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.section-head{text-align:center;max-width:640px;margin:0 auto 44px}
+.section-head h2{font-size:2rem;margin-bottom:10px}
+.section-head p{color:#5a675f}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);background:color-mix(in srgb, var(--primary) 12%, white);padding:4px 12px;border-radius:999px;margin-bottom:12px}
+
+/* ---------- Nav ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid #e6ebe6}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem;color:var(--dark);text-decoration:none}
+.logo-badge{width:38px;height:38px;border-radius:10px;background:var(--primary);color:#fff;display:grid;place-items:center;font-size:.95rem;font-weight:800;letter-spacing:-.5px}
+nav ul{display:flex;gap:26px;list-style:none;align-items:center}
+nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.95rem}
+nav a:hover{color:var(--primary)}
+.btn{display:inline-block;background:var(--primary);color:#fff !important;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:700;border:none;font-size:1rem;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn.small{padding:9px 18px;font-size:.9rem}
+.btn.ghost{background:transparent;color:var(--dark) !important;border:2px solid var(--dark)}
+.btn.accent{background:var(--accent);color:var(--dark) !important}
+.menu-toggle{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--dark)}
+
+/* ---------- Hero ---------- */
+.hero{background:linear-gradient(135deg,var(--dark) 0%,color-mix(in srgb,var(--dark) 55%,var(--primary)) 100%);color:#fff;padding:96px 0}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{color:#fff;font-size:2.9rem;margin-bottom:18px}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:1.15rem;color:#e6efe8;margin-bottom:28px;max-width:480px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-cta .ghost{color:#fff !important;border-color:#ffffff88}
+.hero-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);padding:28px}
+.hero-card h3{color:#fff;margin-bottom:14px;font-size:1.05rem}
+.hero-card ul{list-style:none}
+.hero-card li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.12);display:flex;gap:10px;align-items:center;color:#eef5ef}
+.hero-card li:last-child{border:none}
+.tick{color:var(--accent);font-weight:800}
+
+/* ---------- Services ---------- */
+.services{background:var(--light)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.services .card-grid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.card{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.card .icon{width:52px;height:52px;border-radius:12px;background:color-mix(in srgb,var(--primary) 14%,white);display:grid;place-items:center;margin-bottom:16px}
+.card .icon svg{width:28px;height:28px;stroke:var(--primary)}
+.card h3{margin-bottom:10px;font-size:1.15rem}
+.card ul{list-style:none;margin-top:8px}
+.card li{padding:4px 0 4px 22px;position:relative;color:#4c5a52;font-size:.95rem}
+.card li::before{content:"✓";position:absolute;left:0;color:var(--primary);font-weight:700}
+
+/* ---------- Why us ---------- */
+.why .card-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.why .card{text-align:center;box-shadow:none;border:1px solid #e6ebe6}
+.why .num{font-size:1.9rem;font-weight:800;color:var(--primary)}
+
+/* ---------- Gallery ---------- */
+.gallery{background:var(--light)}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.photo{border-radius:var(--radius);overflow:hidden;position:relative;box-shadow:var(--shadow);aspect-ratio:4/3;background:#dfe7df}
+.photo img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.photo:hover img{transform:scale(1.04)}
+.photo figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(15,25,18,.75));color:#fff;padding:26px 16px 12px;font-weight:600;font-size:.92rem}
+
+/* ---------- Videos ---------- */
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.video-card{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#000;position:relative}
+.video-card video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.video-card figcaption{background:var(--dark);color:#fff;padding:10px 16px;font-weight:600;font-size:.92rem}
+
+/* ---------- Testimonials ---------- */
+.quote-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.quote{background:#fff;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px}
+.stars{color:var(--accent);letter-spacing:2px;font-size:1.05rem}
+.quote p{color:#43514a;font-style:italic}
+.quote .who{font-weight:700;color:var(--dark);font-size:.95rem}
+.quote .who small{display:block;font-weight:500;color:#7b877f}
+
+/* ---------- Forms ---------- */
+.forms{background:var(--dark)}
+.forms .section-head h2,.forms .section-head p{color:#fff}
+.forms .section-head p{opacity:.8}
+.form-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:start}
+.form-card{background:#fff;border-radius:var(--radius);padding:30px}
+.form-card h3{margin-bottom:6px}
+.form-card .sub{color:#68746d;font-size:.92rem;margin-bottom:18px}
+label{display:block;font-weight:600;font-size:.88rem;margin:14px 0 6px;color:var(--dark)}
+input,select,textarea{width:100%;padding:11px 13px;border:1.5px solid #d5ddd5;border-radius:9px;font:inherit;background:#fbfcfb}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)}
+textarea{resize:vertical;min-height:96px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+fieldset{border:none;margin-top:14px}
+fieldset legend{font-weight:600;font-size:.88rem;color:var(--dark);margin-bottom:8px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.checks label{display:flex;gap:8px;align-items:center;font-weight:500;margin:0;cursor:pointer}
+.checks input{width:auto}
+.form-card .btn{width:100%;margin-top:22px}
+.form-note{font-size:.8rem;color:#8a948d;margin-top:10px;text-align:center}
+
+/* ---------- Footer ---------- */
+footer{background:var(--dark);color:#cfdad2;padding:48px 0 28px;border-top:1px solid rgba(255,255,255,.12)}
+.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px;margin-bottom:32px}
+footer h4{color:#fff;margin-bottom:12px;font-size:1rem}
+footer ul{list-style:none}
+footer li{padding:4px 0}
+footer a{color:#cfdad2;text-decoration:none}
+footer a:hover{color:var(--accent)}
+.copyright{text-align:center;font-size:.85rem;opacity:.65;border-top:1px solid rgba(255,255,255,.12);padding-top:22px}
+
+/* ---------- Responsive ---------- */
+@media (max-width:860px){
+  .hero .wrap,.form-grid,.foot{grid-template-columns:1fr}
+  .hero h1{font-size:2.2rem}
+  nav ul{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;flex-direction:column;padding:18px;gap:14px;border-bottom:1px solid #e6ebe6}
+  nav ul.open{display:flex}
+  .menu-toggle{display:block}
+  .row,.checks{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><span class="logo-badge">S&amp;S</span> S&amp;S Property Services</a>
+    <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Our Work</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="btn small" href="#quote">Get a Free Quote</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>Your property, <span>looking its best.</span></h1>
+      <p>Friendly, reliable lawn care, pressure washing, landscaping and window washing — proudly serving Kingston and the surrounding area.</p>
+      <div class="hero-cta">
+        <a class="btn accent" href="#quote">Request a Free Quote</a>
+        <a class="btn ghost" href="#services">See Our Services</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Why homeowners call S&amp;S</h3>
+      <ul>
+        <li><span class="tick">✓</span> Free, no-obligation quotes</li>
+        <li><span class="tick">✓</span> Locally owned &amp; operated</li>
+        <li><span class="tick">✓</span> Fair, upfront pricing</li>
+        <li><span class="tick">✓</span> We show up when we say we will</li>
+        <li><span class="tick">✓</span> Satisfaction guaranteed</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What we do</span>
+      <h2>Property services, done right</h2>
+      <p>One call covers it all — from the lawn to the windows, we keep the outside of your home looking sharp.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 20h16M6 20v-3a6 6 0 0 1 12 0v3M12 11V4M9 6l3-3 3 3"/></svg></div>
+        <h3>Lawn Care</h3>
+        <ul>
+          <li>Weekly &amp; bi-weekly mowing</li>
+          <li>Edging &amp; trimming</li>
+          <li>Spring &amp; fall clean-ups</li>
+          <li>Leaf removal</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 21V8a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v13M13 9h3l4 4M17 10.5V21"/></svg></div>
+        <h3>Pressure Washing</h3>
+        <ul>
+          <li>Driveways &amp; walkways</li>
+          <li>Decks, patios &amp; fences</li>
+          <li>Siding refresh</li>
+          <li>Oil &amp; stain removal</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 22v-7M12 15c-4 0-7-3-7-7 4 0 7 3 7 7Zm0 0c0-5 3-9 7-10 0 5-3 9-7 10Z"/></svg></div>
+        <h3>Landscaping</h3>
+        <ul>
+          <li>Garden bed maintenance</li>
+          <li>Mulching &amp; weeding</li>
+          <li>Hedge &amp; shrub trimming</li>
+          <li>Planting &amp; sod</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/></svg></div>
+        <h3>Window Washing</h3>
+        <ul>
+          <li>Interior &amp; exterior glass</li>
+          <li>Screens &amp; sills</li>
+          <li>Streak-free finish</li>
+          <li>Ground-level &amp; low-rise</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 11c-2 0-3 1.5-3 3 0 3 3 6 8 7 5-1 8-4 8-7 0-1.5-1-3-3-3-1.5 0-2.5 1-3 2h-4c-.5-1-1.5-2-3-2Z"/><path d="M12 3v3M8 5l1.5 2M16 5l-1.5 2"/></svg></div>
+        <h3>Back Rubs</h3>
+        <ul>
+          <li>Shoulders &amp; upper back</li>
+          <li>5 or 10 minute sessions</li>
+          <li>Perfect after yard work</li>
+          <li>Chair provided</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY US ================= -->
+<section class="why">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The S&amp;S difference</span>
+      <h2>Small team. Big standards.</h2>
+    </div>
+    <div class="card-grid">
+      <div class="card"><div class="num">1</div><h3>Get in touch</h3><p>Send a quick quote request — it takes about a minute.</p></div>
+      <div class="card"><div class="num">2</div><h3>Free quote</h3><p>We'll follow up fast with a fair, upfront price. No surprises.</p></div>
+      <div class="card"><div class="num">3</div><h3>We do the work</h3><p>We arrive on time, do the job properly, and tidy up after ourselves.</p></div>
+      <div class="card"><div class="num">4</div><h3>You relax</h3><p>Enjoy your weekend — your property's handled.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Our work</span>
+      <h2>Results you can see</h2>
+      <p>A few examples of the kind of work we love doing.</p>
+    </div>
+    <div class="photo-grid">
+      <!-- Stock photos for now — replace with your own job photos when ready.
+           Flickr photo credits (CC BY 2.0) are listed in README.md. -->
+      <figure class="photo"><img src="assets/img/mowing.jpg" alt="Lawn mower and leaf bag on a freshly mowed residential lawn" loading="lazy" data-ph="Lawn care"><figcaption>Mowing &amp; seasonal clean-ups</figcaption></figure>
+      <figure class="photo"><img src="assets/img/curb-appeal.jpg" alt="Tidy home exterior with landscaped garden at dusk" loading="lazy" data-ph="Curb appeal"><figcaption>Curb appeal, front to back</figcaption></figure>
+      <figure class="photo"><img src="assets/img/landscaping.jpg" alt="Potting soil and garden scoop ready for planting" loading="lazy" data-ph="Landscaping"><figcaption>Garden beds, planted &amp; mulched</figcaption></figure>
+      <figure class="photo"><img src="assets/img/turf.jpg" alt="Healthy green grass close up" loading="lazy" data-ph="Healthy turf"><figcaption>Healthy, weed-free turf</figcaption></figure>
+      <figure class="photo"><img src="assets/img/windows.jpg" alt="Squeegee soaping up a window" loading="lazy" data-ph="Window washing"><figcaption>Streak-free, sparkling windows</figcaption></figure>
+      <figure class="photo"><img src="assets/img/pressure-washing.jpg" alt="Pressure washing a concrete driveway in front of a garage" loading="lazy" data-ph="Pressure washing"><figcaption>Driveways &amp; walkways, like new</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIDEOS ================= -->
+<section class="videos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">See us in action</span>
+      <h2>Watch the work</h2>
+      <p>Short clips of the kind of care your property gets.</p>
+    </div>
+    <div class="video-grid">
+      <figure class="video-card">
+        <video controls muted playsinline preload="metadata" poster="assets/video/lawn-care-poster.jpg" src="assets/video/lawn-care.mp4"></video>
+        <figcaption>Lawn care — trimming &amp; edging</figcaption>
+      </figure>
+      <figure class="video-card">
+        <video controls muted playsinline preload="metadata" poster="assets/video/landscaping-poster.jpg" src="assets/video/landscaping.mp4"></video>
+        <figcaption>Landscaping — planting garden beds</figcaption>
+      </figure>
+      <figure class="video-card">
+        <video controls muted playsinline preload="metadata" poster="assets/video/window-washing-poster.jpg" src="assets/video/window-washing.mp4"></video>
+        <figcaption>Window washing — streak-free shine</figcaption>
+      </figure>
+      <figure class="video-card">
+        <video controls muted playsinline preload="metadata" poster="assets/video/back-rub-poster.jpg" src="assets/video/back-rub.mp4"></video>
+        <figcaption>Back rubs — the post-yard-work treat</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Testimonials</span>
+      <h2>What our customers say</h2>
+    </div>
+    <div class="quote-grid">
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"The boys did a fantastic job on our lawn all season. Always on time, always friendly, and the yard has never looked better."</p>
+        <div class="who">Karen M. <small>Bayridge, Kingston</small></div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"Our driveway looked ten years newer after they pressure washed it. Great price and they cleaned everything up afterwards."</p>
+        <div class="who">Dave R. <small>Reddendale, Kingston</small></div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"Quick to reply, showed up when they said they would, and the windows are spotless. Highly recommend S&amp;S."</p>
+        <div class="who">Priya S. <small>Downtown Kingston</small></div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"They redid our garden beds and trimmed all the hedges in an afternoon. Hard-working, polite, and very fair pricing."</p>
+        <div class="who">Linda &amp; Tom W. <small>Amherstview</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FORMS ================= -->
+<section class="forms" id="quote">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="background:rgba(255,255,255,.15);color:var(--accent)">Get started</span>
+      <h2>Request a quote or ask a question</h2>
+      <p>Tell us a bit about your property and we'll get back to you with a free quote — usually within 24 hours.</p>
+    </div>
+    <div class="form-grid">
+
+      <!-- Quote request form -->
+      <div class="form-card">
+        <h3>Request a Free Quote</h3>
+        <p class="sub">The more detail you give us, the more accurate your quote.</p>
+        <form id="quoteForm" name="quote-request" method="POST" action="/thank-you.html" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="quote-request">
+          <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+          <div class="row">
+            <div><label for="q-name">Name *</label><input id="q-name" name="name" required autocomplete="name"></div>
+            <div><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel"></div>
+          </div>
+          <label for="q-email">Email *</label>
+          <input id="q-email" name="email" type="email" required autocomplete="email">
+          <label for="q-address">Property address / neighbourhood</label>
+          <input id="q-address" name="address" placeholder="e.g. Bayridge, Kingston">
+          <fieldset>
+            <legend>Services you're interested in *</legend>
+            <div class="checks">
+              <label><input type="checkbox" name="services" value="Lawn care"> Lawn care</label>
+              <label><input type="checkbox" name="services" value="Pressure washing"> Pressure washing</label>
+              <label><input type="checkbox" name="services" value="Landscaping"> Landscaping</label>
+              <label><input type="checkbox" name="services" value="Window washing"> Window washing</label>
+              <label><input type="checkbox" name="services" value="Back rub"> Back rub</label>
+            </div>
+          </fieldset>
+          <label for="q-timing">When would you like the work done?</label>
+          <select id="q-timing" name="timing">
+            <option>As soon as possible</option>
+            <option>Within the next 2 weeks</option>
+            <option>This month</option>
+            <option>Just planning ahead</option>
+          </select>
+          <label for="q-details">Anything else we should know?</label>
+          <textarea id="q-details" name="details" placeholder="Size of the lawn, number of windows, what needs washing…"></textarea>
+          <button class="btn" type="submit">Send Quote Request</button>
+          <p class="form-note">Free quote, no obligation. We'll never share your info.</p>
+        </form>
+      </div>
+
+      <!-- General inquiry form -->
+      <div class="form-card">
+        <h3>General Inquiry</h3>
+        <p class="sub">Just have a question? Drop us a line.</p>
+        <form id="inquiryForm" name="general-inquiry" method="POST" action="/thank-you.html" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="general-inquiry">
+          <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+          <label for="i-name">Name *</label>
+          <input id="i-name" name="name" required autocomplete="name">
+          <label for="i-email">Email *</label>
+          <input id="i-email" name="email" type="email" required autocomplete="email">
+          <label for="i-message">Message *</label>
+          <textarea id="i-message" name="message" required></textarea>
+          <button class="btn" type="submit">Send Message</button>
+          <p class="form-note">We usually reply within a day.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h4>S&amp;S Property Services</h4>
+        <p>Lawn care, pressure washing, landscaping and window washing for homes in Kingston, Ontario and the surrounding area.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Our Work</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#quote">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service area</h4>
+        <ul>
+          <li>Kingston &amp; area</li>
+          <li>Amherstview</li>
+          <li>Odessa</li>
+          <li>Glenburnie</li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">© 2026 S&amp;S Property Services · Kingston, Ontario</p>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   FORM DELIVERY — Netlify Forms
+   Both forms POST natively to Netlify (data-netlify="true"); Netlify
+   detects them from the deployed HTML and redirects to /thank-you.html.
+   Configure where submissions are emailed in the Netlify dashboard:
+   Site settings → Forms → Form notifications.
+   ===================================================================== */
+document.getElementById("quoteForm").addEventListener("submit", e => {
+  const services = [...e.target.querySelectorAll('input[name="services"]:checked')];
+  if(services.length === 0){
+    e.preventDefault();
+    alert("Please pick at least one service.");
+  }
+});
+
+/* Graceful fallback if a stock photo fails to load: swap in a branded
+   SVG placeholder so the gallery never shows a broken image. */
+document.querySelectorAll(".photo img").forEach(img => {
+  img.addEventListener("error", () => {
+    const label = img.dataset.ph || "Photo";
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='900' height='675'>
+      <defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+        <stop offset='0' stop-color='%232e7d32'/><stop offset='1' stop-color='%231b3022'/>
+      </linearGradient></defs>
+      <rect width='900' height='675' fill='url(%23g)'/>
+      <text x='450' y='340' font-family='Arial' font-size='44' fill='white' text-anchor='middle' font-weight='bold'>${label}</text>
+      <text x='450' y='390' font-family='Arial' font-size='24' fill='%23cde5cf' text-anchor='middle'>photo coming soon</text>
+    </svg>`;
+    img.src = "data:image/svg+xml," + svg.replace(/\n\s*/g, " ");
+  }, { once: true });
+});
+</script>
+</body>
+</html>
